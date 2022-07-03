@@ -24,5 +24,8 @@ urlpatterns = [
     path('signUp',views.signUp,name='signUp'),
     path('contact',views.contact,name='contact'),
     path('detect',views.detect,name='detect'),
-    path('features',views.features,name='features')
+    path('features',views.features,name='features'),
+    path('attendance',views.attendance,name='attendance'),
+    path('add_employee',views.add_employee,name='add_employee'),
+    # path('view_attendance',views.view_attendance,name='view_attendance')
 ]
