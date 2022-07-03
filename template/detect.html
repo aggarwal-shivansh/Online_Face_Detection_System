@@ -11,9 +11,15 @@
     <link rel="stylesheet" href="{% static 'detect_style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<style>
+    h1,h4{
+    color:aliceblue;
+    }
+
+</style>
 
 <body style="background-image:url('{% static 'images/detect_back.jpg' %}')">
-    <h1 style=" color:'aliceblue';">Welcome, admin</h1>
+    <h1 >Welcome, admin</h1>
     <center>
     <div class="row">
         <div class="col-md-3">
@@ -22,23 +28,12 @@
             <h4 class="text-center att" style="color: aliceblue;">FACIAL FEATURES RECOGNITION</h4>
         </div>
         <div class="col-md-3">
-            <a href=""><img src="{% static 'images/attendance.jpg' %}"
+            <a href="{% url 'attendance' %}"><img src="{% static 'images/attendance.jpg' %}"
                     class="img-responsive" style="width:300px;height:300px ;" /></a>
             <h4 class="text-center att" style=" color:'aliceblue';">ATTENDANCE</h4>
         </div>
     </div>
     </center>
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--        <div class="col md-3">-->
-<!--            -->
-<!--        </div>-->
-<!--        <div class="col md-3">-->
-<!--            -->
-<!--        </div>-->
-<!--    </div>-->
 
 </body>
-
 </html>

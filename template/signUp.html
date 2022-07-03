@@ -13,7 +13,7 @@
     <center>
         <h>CREATE &nbsp;ACCOUNT</h>
         <fieldset>
-            <form method="post" action="/signUp">
+            <form method="post" action="/signUp" enctype="multipart/form-data">
             {% csrf_token %}
                 <div class="div-form">
                     <label id="name" for="name">NAME:<span style="color: red;">*</span></label>
@@ -44,6 +44,7 @@
         <video id="webcam" autoplay playsinline width="320" height="240"></video>
 
     </center>
+<marquee style="color:aliceblue">Note: Provide image with single face only for signup. Developed By: SHIVANSH AGGARWAL</marquee>
 
 </body>
 </html>

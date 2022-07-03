@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD EMPLOYEE</title>
+    <link rel="stylesheet" href="{% static 'style_login.css' %}">
+</head>
+<body  style="background-image:url('{% static 'images/background.jpg' %}')">
+{% if flag == 0%}
+<center>
+    <h>ADD EMPLOYEE</h>
+<fieldset>
+
+            <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="div-form">
+                   <label id="enroll_id" for="enroll_id">ENROLLMENT ID:<span style="color: red;">*</span></label>
+                    <input type="number" name="enroll_id" required>
+                </div>
+                <div class="div-form">
+                    <label id="name" for="name">NAME:<span style="color: red;">*</span></label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="div-form">
+                     <label id="email" for="email">EMAIL:<span style="color: red;">*</span></label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="div-form">
+                    <label for="img">SELECT IMAGE:<span style="color: red;">*</span></label>
+                    <input type="file" id="img" name="img12" accept="image/*"  required>
+                </div>
+                <button id="submit" type="submit">SUBMIT</button>
+                <button id="reset" type="reset">RESET</button>
+            </form>
+             <br><a href="{% url 'home' %}"><button id="home_btn">HOME</button></a>
+            <!--VIDEO ELEMENT-->
+        </fieldset>
+</center>
+<marquee style="color:aliceblue">Note: Provide image with single face only for signup. Developed By: SHIVANSH AGGARWAL</marquee>
+{%endif%}
+</body>
+</html>

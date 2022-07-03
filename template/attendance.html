@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'detect_style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<style>
+    h1{
+        color:red;
+        text-align:center;
+    }
+    h4{
+    color: aliceblue;
+    }
+    .row{
+        padding:50px;
+        text-align:center;
+    }
+    #mark{
+        border-color:transparent;
+        background:transparent;
+        border-radius:50%;
+    }
+
+</style>
+<body  style="background-image: url('{% static 'images/facial_attributes_back.png' %}'); background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;">
+    <h1>ATTENDANCE DASHBOARD</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{% url 'add_employee' %}"><img src="{% static 'images/add_emp.png' %}" class="img-responsive"
+                    style="width:300px;height:300px ;" /></a>
+            <h4 class="text-center att" style="color: aliceblue;">ADD EMPLOYEE</h4>
+        </div>
+        <form method="post" action="">
+            {% csrf_token %}
+        <div class="col-md-3">
+            <button id = "mark" type="submit"><img src="{% static 'images/mark.png' %}"
+                                       class="img-responsive" style="width:300px;height:300px ;" /></button>
+            <h4 class="text-center att" style=" color:'aliceblue';">MARK ATTENDANCE</h4>
+        </div>
+            </form>
+        <div class="col-md-3">
+            <a href="employees_present.pdf" download="PRESENT EMPLOYEES"><img src="{% static 'images/view_attendance.jpg' %}"
+                    class="img-responsive" style="width:300px;height:300px ;" /></a>
+            <h4 class="text-center att" style=" color:'aliceblue';">VIEW ATTENDANCE</h4>
+        </div>
+         <div class="col-md-3">
+            <a href="{% url 'home' %}"><img src="{% static 'images/log.png' %}"
+                    class="img-responsive" style="width:300px;height:300px ;" /></a>
+            <h4 class="text-center att" style=" color:'aliceblue';">LOGOUT</h4>
+        </div>
+    </div>
+
+</body>
+</html>

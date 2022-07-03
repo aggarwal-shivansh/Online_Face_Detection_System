@@ -1,11 +1,133 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Facial Features</title>
 </head>
-<body>
+<style>
+    h1{
+        color:red;
+        text-align:center;
+    }
+    h2{
+        color:white;
+    }
+    tr{
+        color:red;
+        font-size:20px;
+    }
+    fieldset {
+            border: 2px solid transparent;
+            border-color: aliceblue;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px;
+            width: fit-content;
+        }
+
+        legend {
+            font-size:30px;
+            background-color: aliceblue;
+            padding-inline: 10px;
+            border-radius: 10px;
+            border-top: 2px solid transparent;
+            border-color: rgb(0, 0, 0);
+        }
+</style>
+<body style="background-image: url('{% static 'images/facial_attributes_back.png' %}'); background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;">
 <h1>FACIAL FEATURES RECOGNITION</h1>
-<p>{{ variable }}</p>
+<!--<h2>FACIAL ATTRIBUTES : </h2>-->
+<center>
+    <fieldset >
+<legend>  FACIAL ATTRIBUTES</legend>
+<table>
+    <tr>
+        <td>
+            <form method="post" action="/features">
+            {% csrf_token %}
+            <label for="img">SELECT IMAGE:<span style="color: red;">*</span></label>
+            <input type="file" id="img" name="img1" accept="image/*"  required>
+                &nbsp;<br><br>
+            <button id="submit" type="submit">SUBMIT</button>
+            </form>
+            <a href="{% url 'detect' %}"><button id="home_btn">DETECT</button></a>
+        </td>
+        {% if flag == 1 %}
+         <td>
+             <img src="{% static src %}" width="500" height="400">
+        </td>
+        {% else %}
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        {% endif %}
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+            <table>
+    <tr>
+        <td style="color:orange">
+            ATTRIBUTES
+            &nbsp;&nbsp;&nbsp;
+        </td>
+        <td style="color:orange">
+            VALUES
+        </td>
+    </tr>
+     <tr>
+        <td>
+            FACE DETECTED
+        </td>
+        <td style="color:aliceblue">
+            {{ face_detected }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            AGE
+        </td>
+        <td style="color:aliceblue">
+            {{ age_start }}-{{age_end}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            GENDER
+        </td>
+        <td style="color:aliceblue">
+            {{ variable.gender }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            EMOTION
+        </td>
+        <td style="color:aliceblue">
+            {{ variable.dominant_emotion }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            RACE
+        </td>
+        <td style="color:aliceblue">
+            {{ variable.dominant_race }}
+        </td>
+                </tr>
+            </table>
+
+        </td>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+            </fieldset>
+    </center>
+<marquee style="color:aliceblue">NOTE: Kindly select image with single face only. Developed By: SHIVANSH AGGARWAL</marquee>
 </body>
 </html>
