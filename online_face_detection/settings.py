@@ -101,7 +101,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+MEDIA_URL = '/profile_images/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'profile_images')
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
